@@ -43,7 +43,5 @@ func Connect(dbName string, collectionName string) (*mongo.Collection, error) {
 
 	fmt.Println("Connected to MongoDB to collection: ", collection.Name())
 
-	defer client.Disconnect(context.Background())
-
 	return collection, nil
 }
