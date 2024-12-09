@@ -12,36 +12,48 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+var client *mongo.Client
+
 func Connect(dbName string, collectionName string) (*mongo.Collection, error) {
-	if dbName == "" || collectionName == "" {
-		errMsg := "dbName and collectionName are required!"
-		log.Fatal(errMsg)
-		return nil, errors.New(errMsg)
-	}
+    if dbName == "" || collectionName == "" {
+        errMsg := "dbName and collectionName are required!"
+        return nil, errors.New(errMsg)
+    }
 
-	err := godotenv.Load()
-	if err != nil {
-		return nil, err
-	}
+    err := godotenv.Load()
+    if err != nil {
+        return nil, err
+    }
 
-	MONGO_URI := os.Getenv("MONGO_URI")
+    MONGO_URI := os.Getenv("MONGO_URI")
+    if MONGO_URI == "" {
+        return nil, errors.New("MONGO_URI is not set")
+    }
 
-	clientOptions := options.Client().ApplyURI(MONGO_URI)
-	client, err := mongo.Connect(context.Background(), clientOptions)
-	if err != nil {
-		log.Fatal("mongo.Connect err -->>", err)
-		return nil, err
-	}
+    clientOptions := options.Client().ApplyURI(MONGO_URI)
+    client, err = mongo.Connect(context.Background(), clientOptions)
+    if err != nil {
+        return nil, fmt.Errorf("mongo.Connect err -->> %v", err)
+    }
 
-	err = client.Ping(context.Background(), nil)
-	if err != nil {
-		log.Fatal("client.Ping err -->>", err)
-		return nil, err
-	}
+    err = client.Ping(context.Background(), nil)
+    if err != nil {
+        return nil, fmt.Errorf("client.Ping err -->> %v", err)
+    }
 
-	collection := client.Database(dbName).Collection(collectionName)
+    collection := client.Database(dbName).Collection(collectionName)
+    fmt.Println("Connected to MongoDB to collection: ", collection.Name())
 
-	fmt.Println("Connected to MongoDB to collection: ", collection.Name())
+    return collection, nil
+}
 
-	return collection, nil
+// CloseClient closes the MongoDB client connection
+func CloseClient() {
+    if client != nil {
+        if err := client.Disconnect(context.Background()); err != nil {
+            log.Printf("Error disconnecting from MongoDB: %v", err)
+        } else {
+            fmt.Println("Disconnected from MongoDB")
+        }
+    }
 }

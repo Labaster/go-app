@@ -1,7 +1,5 @@
-github.com/Labaster/go-app/dbConf v0.0.0-20241209152650-6a6f0f65c10a h1:kzEBw8QorgYxXrnmqC3NnvgZQNTPjpFJnxL9paO0ci8=
-github.com/Labaster/go-app/dbConf v0.0.0-20241209152650-6a6f0f65c10a/go.mod h1:0ZLXx4c4Q83X1XOrRTviQQwx4YIDGYr8U/GEJGDGcpg=
-github.com/Labaster/go-app/structures v0.0.0-20241209152650-6a6f0f65c10a h1:vSP4Chy5/J1XbLogn6yCZucNIRbizg7ydqA5ESW5z6c=
-github.com/Labaster/go-app/structures v0.0.0-20241209152650-6a6f0f65c10a/go.mod h1:Zgm55qdwkBYrrK9hE+WjUyvxpNnS+KQIEgG0Q9tTb3c=
+github.com/Labaster/go-app/structures v0.0.0-20241209154524-3c09f52f10db h1:8hak9jiXermTtt09B64rX5p4sOrf8DWvDYVCNYZGuqA=
+github.com/Labaster/go-app/structures v0.0.0-20241209154524-3c09f52f10db/go.mod h1:Zgm55qdwkBYrrK9hE+WjUyvxpNnS+KQIEgG0Q9tTb3c=
 github.com/andybalholm/brotli v1.0.5 h1:8uQZIdzKmjc/iuPu7O2ioW48L81FgatrcpfFmiq/cCs=
 github.com/andybalholm/brotli v1.0.5/go.mod h1:fO7iG3H7G2nSZ7m0zPUDn85XEX2GTukHGRSepvi9Eig=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

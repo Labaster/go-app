@@ -2,9 +2,13 @@ module github.com/Labaster/go-app/routeActions
 
 go 1.23.3
 
+replace github.com/Labaster/go-app/dbConf => ../dbConf
+
+replace github.com/Labaster/go-app/structures => ../structures
+
 require (
-	github.com/Labaster/go-app/dbConf v0.0.0-20241209152650-6a6f0f65c10a
-	github.com/Labaster/go-app/structures v0.0.0-20241209152650-6a6f0f65c10a
+	github.com/Labaster/go-app/dbConf v0.0.0-00010101000000-000000000000
+	github.com/Labaster/go-app/structures v0.0.0-00010101000000-000000000000
 	github.com/gofiber/fiber/v2 v2.52.5
 	github.com/joho/godotenv v1.5.1
 	go.mongodb.org/mongo-driver v1.17.1
@@ -32,7 +36,3 @@ require (
 	golang.org/x/sys v0.23.0 // indirect
 	golang.org/x/text v0.17.0 // indirect
 )
-
-// replace github.com/Labaster/go-app/dbConf => ../dbConf
-
-// replace github.com/Labaster/go-app/structures => ../structures

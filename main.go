@@ -7,11 +7,13 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 
+	"github.com/Labaster/go-app/dbConf"
 	"github.com/Labaster/go-app/routeActions"
 )
 
 func main() {
 	fmt.Println("App started!")
+	defer dbConf.CloseClient()
 
 	PORT := os.Getenv("PORT")
 
