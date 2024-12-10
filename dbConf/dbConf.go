@@ -12,11 +12,12 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-var client *mongo.Client
+var client *mongo.Client = nil
 
+// Connect connects to MongoDB and returns the collection
 func Connect(dbName string, collectionName string) (*mongo.Collection, error) {
     if dbName == "" || collectionName == "" {
-        errMsg := "dbName and collectionName are required!"
+        errMsg := "dbName and collectionName are required"
         return nil, errors.New(errMsg)
     }
 

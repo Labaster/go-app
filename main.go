@@ -21,9 +21,9 @@ func main() {
 
 	app.Get("/", routeActions.Home)
 	app.Get("/api/todos", routeActions.GetTodos)
-	// app.Post("/api/addTodo", AddTodo)
-	// app.Patch("/api/updateTodo/:id", UpdateTodo)
-	// app.Delete("/api/deleteTodo/:id", DeleteTodo)
+	app.Post("/api/addTodo", routeActions.AddTodo)
+	app.Patch("/api/updateTodo/:id", routeActions.UpdateTodo)
+	app.Delete("/api/deleteTodo/:id", routeActions.DeleteTodo)
 
 	serverErr := app.Listen(":" + PORT)
 	if serverErr != nil {

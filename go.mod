@@ -3,13 +3,13 @@ module github.com/Labaster/go-app
 go 1.23.3
 
 require (
-	github.com/Labaster/go-app/dbConf v0.0.0-20241209152650-6a6f0f65c10a
+	github.com/Labaster/go-app/dbConf v0.0.0-00010101000000-000000000000
 	github.com/Labaster/go-app/routeActions v0.0.0-00010101000000-000000000000
 	github.com/gofiber/fiber/v2 v2.52.5
 )
 
 require (
-	github.com/Labaster/go-app/structures v0.0.0-20241209154524-3c09f52f10db // indirect
+	github.com/Labaster/go-app/structures v0.0.0-00010101000000-000000000000 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/uuid v1.5.0 // indirect
@@ -34,6 +34,8 @@ require (
 	golang.org/x/text v0.17.0 // indirect
 )
 
+replace github.com/Labaster/go-app/dbConf => ./dbConf
+
 replace github.com/Labaster/go-app/routeActions => ./routeActions
 
-replace github.com/Labaster/go-app/dbConf => ./dbConf
+replace github.com/Labaster/go-app/structures => ./structures
