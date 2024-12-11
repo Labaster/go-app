@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 
 	"github.com/Labaster/go-app/dbConf"
 	"github.com/Labaster/go-app/routeActions"
@@ -18,6 +19,11 @@ func main() {
 	PORT := os.Getenv("PORT")
 
 	app := fiber.New()
+
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: "http://localhost:5173",
+		AllowHeaders: "Origin, Content-Type, Accept",
+	}))
 
 	app.Get("/", routeActions.Home)
 	app.Get("/api/todos", routeActions.GetTodos)
